@@ -1,0 +1,22 @@
+{
+  "name": "blog-enriquebv",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "author": "Enrique Bernabeu <enriquebv@gmail.com>",
+  "scripts": {
+    "dev": "webpack --mode=development --watch",
+    "server": "webpack-dev-server --mode=development"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^1.0.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.5.17",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  },
+  "devDependencies": {}
+}

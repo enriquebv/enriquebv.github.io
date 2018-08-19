@@ -1,0 +1,48 @@
+@import 'reset';
+* {
+  outline: none;
+}
+body {
+  font-family: 'Work Sans', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  color: #2e2e2e;
+}
+
+#blog {
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+  max-width: 1200px;
+  margin: 0px auto;
+  header {
+    h1 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2em;
+    }
+  }
+  main {
+    h2 {
+      font-size: 1.5em;
+    }
+    max-height: 100vh;
+    .index {
+      .search {
+        font-size: 1.2em;
+        width: 100%;
+        border:0;
+      }
+    }
+  }
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.3s;
+}
+
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translate(-25px);
+}
