@@ -13,26 +13,39 @@
     <!-- Header -->
     <header>
       {{ languageFilter }}
-      <h1>{{ title }}_</h1>
-      <ul>
+      <h1> {{ title }}</h1>
+      <ul v-if="isIndex">
         <li v-for="(extension, name) in extensions" @click="applyLanguageFilter(extension.language)" :class="{active: languageFilter === extension.language}">{{ name }}</li>
       </ul>
     </header>
 
     <!-- Main -->
     <main>
-      <h2>{{ post.title || page.title || 'Posts' }}</h2>
+      <h2>{{ post.description || page.description || 'Posts' }}</h2>
 
       <!-- Index -->
-      <div v-if="isIndex" class="index">
-        <input type="text" class="search" v-model="search" placeholder="Buscar" />
-        <transition-group name="list" tag="div">
-          <div v-for="post in filteredPosts" :key="post.id">
-            <a @click="showPost($event, post)" :href="post.slug">{{ post.description }}</a>
-          </div>
-        </transition-group>
-      </div>
+      <transition name="index">
+        <div class="index" v-if="isIndex">
+          <input type="text" class="search" v-model="search" placeholder="Buscar" />
+          <transition-group name="list" tag="div">
+            <div v-for="post in filteredPosts" :key="post.id" v-if="isIndex">
+              <a @click="showPost($event, post)" :href="post.slug">{{ post.description }}</a>
+            </div>
+          </transition-group>
+        </div>
+      </transition>
 
+      <!-- Post -->
+      <transition name="post">
+        <div class="post" v-if="isPost">
+          <div class="tab-selector" v-for="file in post.files">
+              {{ file.filename }}
+          </div>
+          <div class="tab" v-for="file in post.files">
+            {{ file.content }}
+          </div>
+        </div>
+      </transition>
     </main>
 
     <!-- Footer -->

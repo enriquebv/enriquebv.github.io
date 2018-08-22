@@ -2,6 +2,7 @@
 * {
   outline: none;
 }
+
 body {
   font-family: 'Work Sans', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
@@ -15,26 +16,41 @@ body {
   flex-flow: column;
   max-width: 1200px;
   margin: 0px auto;
+  min-height: 100vh;
+  justify-content: center;
   header {
+    display: flex;
+    flex-flow: row;
     h1 {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 2em;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    ul {
+      display: flex;
+      flex-flow: row nowrap;
+      margin-left: auto;
     }
   }
   main {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
     h2 {
-      font-size: 1.5em;
+      font-weight: bold;
     }
     max-height: 100vh;
     .index {
       .search {
         font-size: 1.2em;
         width: 100%;
-        border:0;
+        border: 0;
       }
     }
   }
 }
+
+/** Animaciones */
 
 .list-enter-active,
 .list-leave-active {
@@ -45,4 +61,28 @@ body {
 .list-leave-to {
   opacity: 0;
   transform: translate(-25px);
+  height: 0;
+}
+
+.index-enter-active,
+.index-leave-active {
+  transition: all 0.3s;
+}
+
+.index-enter,
+.index-leave-to {
+  opacity: 0;
+  transform: translate(-25px);
+  height: 0;
+}
+
+.post-enter-active,
+.post-leave-active {
+  transition: all 0.3s;
+}
+
+.post-enter,
+.post-leave-to {
+  transform: translate(25px);
+  height: 0;
 }

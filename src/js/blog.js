@@ -21,12 +21,12 @@ new Vue({
       this.languageFilter = language
     },
     showPost: function (event, post) {
-      window.history.pushState({}, post.description, '#!' + post.slug)
+      window.history.pushState({ slug: post.slug }, post.description, '#!' + post.slug)
 
       blog.getPost(post.url)
         .catch(alert)
         .then(content => {
-          console.info(content)
+          this.post = content
         })
 
       event.preventDefault()
@@ -34,10 +34,10 @@ new Vue({
   },
   computed: {
     isIndex: function () {
-      return this.page.title === undefined || this.post.title === undefined
+      return this.post.description === undefined
     },
     isPost: function () {
-      return this.post.title !== undefined && this.page.title === undefined
+      return this.post.description !== undefined
     },
     isPage: function () {
       return this.page.title !== undefined && this.post.title === undefined

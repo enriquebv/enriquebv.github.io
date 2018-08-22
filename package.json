@@ -5,8 +5,8 @@
   "private": true,
   "author": "Enrique Bernabeu <enriquebv@gmail.com>",
   "scripts": {
-    "dev": "webpack --mode=development --watch",
-    "server": "webpack-dev-server --mode=development"
+    "server": "nodemon server.js",
+    "dev": "webpack --mode=development --watch"
   },
   "license": "ISC",
   "dependencies": {
@@ -18,5 +18,8 @@
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.18.3"
+  }
 }

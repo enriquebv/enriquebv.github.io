@@ -59,19 +59,33 @@ body {
   display: flex;
   flex-flow: column;
   max-width: 1200px;
-  margin: 0px auto; }
-  #blog header h1 {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 2em; }
+  margin: 0px auto;
+  min-height: 100vh;
+  justify-content: center; }
+  #blog header {
+    display: flex;
+    flex-flow: row; }
+    #blog header h1 {
+      font-weight: bold;
+      font-size: 1.2em; }
+    #blog header ul {
+      display: flex;
+      flex-flow: row nowrap;
+      margin-left: auto; }
   #blog main {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
     max-height: 100vh; }
     #blog main h2 {
-      font-size: 1.5em; }
+      font-weight: bold; }
     #blog main .index .search {
       font-size: 1.2em;
       width: 100%;
       border: 0; }
 
+/** Animaciones */
 .list-enter-active,
 .list-leave-active {
   transition: all 0.3s; }
@@ -79,5 +93,25 @@ body {
 .list-enter,
 .list-leave-to {
   opacity: 0;
-  transform: translate(-25px); }
+  transform: translate(-25px);
+  height: 0; }
+
+.index-enter-active,
+.index-leave-active {
+  transition: all 0.3s; }
+
+.index-enter,
+.index-leave-to {
+  opacity: 0;
+  transform: translate(-25px);
+  height: 0; }
+
+.post-enter-active,
+.post-leave-active {
+  transition: all 0.3s; }
+
+.post-enter,
+.post-leave-to {
+  transform: translate(25px);
+  height: 0; }
 
